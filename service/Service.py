@@ -1,7 +1,9 @@
 from flask import request
 
+from service.Interceptor import Interceptor
 
-class Service:
+
+class Service(Interceptor):
     def __init__(self):
         self.services = {}
 

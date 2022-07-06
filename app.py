@@ -1,10 +1,13 @@
 from flask import Flask
+from prometheus_flask_exporter import PrometheusMetrics
 
 from service.Service import Service
 
 app = Flask(__name__)
 
 service = Service()
+
+metrics = PrometheusMetrics(app, group_by='endpoint')
 
 @app.route('/service', methods=['POST'])
 def register_service():  # put application's code here

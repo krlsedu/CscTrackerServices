@@ -1,0 +1,16 @@
+version: '3'
+
+networks:
+  backend:
+    external: true
+
+services:
+  csctracker:
+    container_name: csc-tracker-services
+    hostname: csc-tracker-services
+    image: krlsedu/csctracker-services
+    restart: always
+    networks:
+      - backend
+    ports:
+      - "5050:5000"
